@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 
-function getNewAccessToken(id, email) {
+function generateAccessToken(id, email) {
     return jwt.sign(
         { user_id: id, email },
         process.env.ACCESS_TOKEN_SECRECT,
@@ -9,7 +9,7 @@ function getNewAccessToken(id, email) {
 }
 
 
-function getNewRefreshToken(id, email) {
+function generateRefreshToken(id, email) {
     return jwt.sign(
         { user_id: id, email },
         process.env.REFRESH_TOKEN_SECRECT,
@@ -17,4 +17,4 @@ function getNewRefreshToken(id, email) {
     );
 }
 
-module.exports = {getNewAccessToken, getNewRefreshToken};
+module.exports = { generateAccessToken, generateRefreshToken };
